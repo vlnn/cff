@@ -1,5 +1,6 @@
 using cff;
 using NUnit.Framework;
+using Moq;
 using Shouldly;
 
 namespace tests {
@@ -8,8 +9,7 @@ namespace tests {
     public class Tests {
 
         [Test]
-        public void TestsAreRunning() {
-            Assert.AreEqual(30, 29+1);
+        public void ReadCodeReturnWithoutParse() {
         }
 
     }

@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace cff {
+namespace cff
+{
 
     class Program {
         static void Main(string[] args) {
+            var codeReader = new CodeReader();
             Forth f = new Forth();
-            Console.WriteLine("CF3 is being starting");
+            System.Console.WriteLine("CF3 is being starting");
 
             while (Forth.isForthRunning) {
-                f.Main();
+                f.Main(codeReader);
             }
-            Console.WriteLine("Good bye");
+            System.Console.WriteLine("Good bye");
         }
     }
 }
