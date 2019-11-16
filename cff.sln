@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5D1A0D43-9FBF-4B01-AB29-725264B4D5E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calc", "src\calc\calc.csproj", "{ECD7A65A-DB14-44F5-926A-AA22986D0852}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cff", "src\cff\cff.csproj", "{ECD7A65A-DB14-44F5-926A-AA22986D0852}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
