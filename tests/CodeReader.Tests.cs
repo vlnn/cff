@@ -5,25 +5,29 @@ using System.IO;
 using Moq;
 using Shouldly;
 
-namespace tests
+namespace NUnit.Tests
 {
-
     [TestFixture]
-    public class Tests
+    public class CodeReaderTest
     {
+        public CodeReader codeReader = new CodeReader();
 
         [Test]
         public void ParseSimpleLine()
         {
-            var codeReader = new CodeReader();
             codeReader.ParseCode("one two   three").ShouldBe(new[] { "one", "two", "three" });
         }
 
         [Test]
         public void ParseSeveralLines()
         {
-            var codeReader = new CodeReader();
             codeReader.ParseCode("one  two \n three").ShouldBe(new[] { "one", "two", "three" });
+        }
+        
+        [Test]
+        public void ParseDoesntChangeRegister()
+        {
+            codeReader.ParseCode("oNe  tWo THREE").ShouldBe(new[] { "oNe", "tWo", "THREE" });
         }
     }
 }
