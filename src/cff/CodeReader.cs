@@ -8,7 +8,7 @@ public class CodeReader : ICodeReader {
     }
 
     public string[] ParseCode(string nonParsedCode) {
-        var parsedCode = nonParsedCode.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var parsedCode = nonParsedCode.Split(codeDelimiters, StringSplitOptions.RemoveEmptyEntries);
         return parsedCode;
     }
 }
