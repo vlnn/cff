@@ -1,4 +1,4 @@
-public interface ICodeReader{
+public interface ICodeReader {
     string ReadCode();
     string[] ParseCode(string nonParsedCode);
 }

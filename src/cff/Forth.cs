@@ -55,9 +55,9 @@ namespace cff {
         }
 
         static Action fNop = () => {};
-        static Action fBye = () => { 
-            System.Console.Write("CYA"); 
+        static Action fBye = () => {
+            System.Console.Write("CYA");
             isForthRunning = false;
-            };
+        };
     }
 }
