@@ -5,7 +5,7 @@ namespace cff {
 
     partial class Forth : IForth {
         // the program is running
-        public bool isForthRunning { get; set; }
+        static public bool isForthRunning { get; set; }
 
         // true if FORTH is in compile mode, false if in running
         public bool isCompiling { get; set; }
@@ -55,6 +55,9 @@ namespace cff {
         }
 
         static Action fNop = () => {};
-        static Action fBye = () => { System.Console.Write("CYA"); };
+        static Action fBye = () => { 
+            System.Console.Write("CYA"); 
+            isForthRunning = false;
+            };
     }
 }
