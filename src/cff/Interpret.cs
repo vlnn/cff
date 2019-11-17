@@ -11,7 +11,7 @@ namespace cff {
             string nonParsedCode = codeReader.ReadCode();
             string[] parsedCode = codeReader.ParseCode(nonParsedCode);
             foreach (string word in parsedCode) {
-                if (!Forth.isCompiling) {
+                if (!IForth.isCompiling) {
                     System.Console.Write("Running "); // 2do del
                     System.Console.WriteLine(word); // 2do del
                     Forth.Run(word);
