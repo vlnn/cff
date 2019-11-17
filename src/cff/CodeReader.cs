@@ -1,7 +1,7 @@
 using System;
 
 public class CodeReader : ICodeReader {
-    string[] codeDelimiters = {" ", "\n"};
+    string[] codeDelimiters = { " ", "\n" };
 
     public string ReadCode() {
         return (ReadLine.Read());

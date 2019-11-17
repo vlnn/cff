@@ -11,35 +11,36 @@ namespace cff {
         public bool isCompiling { get; set; }
 
         // Dict is main FORTH words dictionary
-        static Dictionary<string, string[]> Dict = new Dictionary<string, string[]>() {
-            ["bye"] = (new string[1] { "bye" }),
+        Dictionary<string, string[]> Dict = new Dictionary<string, string[]>() {
+            // { "bye",  new[] { "drop", "bye"} } // example how to inline forth code
         };
 
         // Primi is main FORTH primitives dictionary
-        static Dictionary<string, Action> Primi = new Dictionary<string, Action>() {
-            ["nop"] = fNop, ["dup"] = fNop
+        Dictionary<string, Action> Primi = new Dictionary<string, Action>() { { "nop", fNop }, { "dup", fNop }, { "bye", fBye },
         };
 
-        public Forth(){
+        public Forth() {
             isForthRunning = true;
             isCompiling = false;
         }
         public void Compile(string word) {}
 
         public void Run(string word) {
+            TryRunPrimitive(word);
             if (Find(word).Length != 0) {
-                if (!TryRunPrimitive(word)) {
-                    foreach (string w in Find(word)) {
-                        Run(w);
-                    }
+                foreach (string w in Find(word)) {
+                    Run(w);
                 }
             }
         }
 
         bool TryRunPrimitive(string word) {
+            Console.WriteLine("key is " + word);
             // find and run primitive
             if (Primi.ContainsKey(word)) {
+                Console.WriteLine("invoking");
                 Primi[word].Invoke();
+                Console.WriteLine("invoken");
                 return true;
             }
             return false;
