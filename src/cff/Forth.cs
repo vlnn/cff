@@ -12,7 +12,7 @@ namespace cff {
 
         // Dict is main FORTH words dictionary
         Dictionary<string, string[]> Dict = new Dictionary<string, string[]>() {
-            // { "bye",  new[] { "drop", "bye"} } // example how to inline forth code
+            { "die",  new[] { "drop", "bye"} } // example how to inline forth code
         };
 
         public Forth() {
