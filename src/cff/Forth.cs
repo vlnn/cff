@@ -5,18 +5,14 @@ namespace cff {
 
     partial class Forth : IForth {
         // the program is running
-        static public bool isForthRunning { get; set; }
+        static private bool isForthRunning { get; set; }
 
         // true if FORTH is in compile mode, false if in running
-        public bool isCompiling { get; set; }
+        private bool isCompiling { get; set; }
 
         // Dict is main FORTH words dictionary
         Dictionary<string, string[]> Dict = new Dictionary<string, string[]>() {
             // { "bye",  new[] { "drop", "bye"} } // example how to inline forth code
-        };
-
-        // Primi is main FORTH primitives dictionary
-        Dictionary<string, Action> Primi = new Dictionary<string, Action>() { { "nop", fNop }, { "dup", fNop }, { "bye", fBye },
         };
 
         public Forth() {
@@ -38,7 +34,7 @@ namespace cff {
             Console.WriteLine("key is " + word);
             // find and run primitive
             if (Primi.ContainsKey(word)) {
-                Console.WriteLine("invoking");
+                Console.WriteLine("invoking"); 
                 Primi[word].Invoke();
                 Console.WriteLine("invoken");
                 return true;
@@ -53,12 +49,6 @@ namespace cff {
                 return (new string[0]);
             }
         }
-
-        static Action fNop = () => {};
-        static Action fBye = () => {
-            System.Console.Write("CYA");
-            isForthRunning = false;
-        };
 
         public bool IsCompiling(){
             return isCompiling;

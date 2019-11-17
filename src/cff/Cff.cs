@@ -11,7 +11,7 @@ namespace cff {
             Forth forth = new Forth();
             Interpret interpret = new Interpret(forth);
 
-            while (Forth.isForthRunning) {
+            while (forth.IsForthRunning()) {
                 interpret.Parse(codeReader);
             }
         }
