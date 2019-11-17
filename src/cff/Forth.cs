@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace cff {
 
-    partial class Forth {
+    partial class Forth : IForth {
         // the program is running
-        static public bool isForthRunning = true;
+        public bool isForthRunning { get; set; }
 
         // FORTH is in compile mode (in running if false)
-        static public bool isCompiling = false; // it should be possible to compile the core dictionary using true here
+        public bool isCompiling { get; set; }
 
         // Dict is main FORTH words dictionary
         static Dictionary<string, string[]> Dict = new Dictionary<string, string[]>() {
@@ -20,9 +20,13 @@ namespace cff {
             ["nop"] = fNop, ["dup"] = fNop
         };
 
-        void Compile(string word) {}
+        public Forth(){
+            isForthRunning = true;
+            isCompiling = false;
+        }
+        public void Compile(string word) {}
 
-        void Run(string word) {
+        public void Run(string word) {
             if (Find(word).Length != 0) {
                 if (!TryRunPrimitive(word)) {
                     foreach (string w in Find(word)) {
@@ -50,7 +54,6 @@ namespace cff {
         }
 
         static Action fNop = () => {};
-        static Action fBye = () => { System.Console.Write("bbbbbbbbbbbbbbbb"); isForthRunning = false; };
-
+        static Action fBye = () => { System.Console.Write("CYA"); };
     }
 }

@@ -9,11 +9,13 @@ namespace cff
     class Program {
         static void Main(string[] args) {
             var codeReader = new CodeReader();
-            Forth f = new Forth();
+            Forth forth = new Forth();
+            var parser = new Parser(forth);
+
             System.Console.WriteLine("CF3 is being starting");
 
-            while (Forth.isForthRunning) {
-                f.Main(codeReader);
+            while (forth.isForthRunning) {
+                parser.Parse(codeReader);
             }
             System.Console.WriteLine("Good bye");
         }
