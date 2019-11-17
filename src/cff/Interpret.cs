@@ -2,9 +2,9 @@ using System;
 
 namespace cff {
 
-    class Parser {
+    class Interpret {
         protected IForth Forth;
-        public Parser(IForth forth) {
+        public Interpret(IForth forth) {
             Forth = forth;
         }
         public void Parse(CodeReader codeReader) {
