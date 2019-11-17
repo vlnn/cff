@@ -7,7 +7,7 @@ namespace cff {
         // the program is running
         public bool isForthRunning { get; set; }
 
-        // FORTH is in compile mode (in running if false)
+        // true if FORTH is in compile mode, false if in running
         public bool isCompiling { get; set; }
 
         // Dict is main FORTH words dictionary
