@@ -3,7 +3,7 @@ using System;
 public class CodeReader : ICodeReader {
     string[] codeDelimiters = { " ", "\n" };
 
-    public string ReadCode() {
+    public virtual string ReadCode() {
         return (ReadLine.Read());
     }
 

@@ -59,5 +59,13 @@ namespace cff {
             System.Console.Write("CYA");
             isForthRunning = false;
         };
+
+        public bool IsCompiling(){
+            return isCompiling;
+        }
+
+        public bool IsForthRunning(){
+            return isForthRunning;
+        }
     }
 }
